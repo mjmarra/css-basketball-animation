@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.throw-button {
+  --primary-clr: hsl(190, 20%, var(--primary-clr-l, 35%));
+  position: absolute;
+  inset: 3rem 3rem auto auto;
+  background: white;
+  color: var(--primary-clr);
+  font-size: 1.2rem;
+  padding: 0.25em 1em;
+  border-radius: 4px;
+  border: 2px solid var(--primary-clr);
+
+  &:hover {
+    --primary-clr-l: 50%;
+  }
+}
+
+.court {
+  width: var(--court-width, 600px);
+  height: 100vh;
+  margin-inline: auto;
+  position: relative;
+}
+
+.court::after {
+  content: "🗑️";
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  font-size: 6.5rem;
+  z-index: 1;
+}
+
+.ball {
+  font-size: 5rem;
+  position: absolute;
+  left: 0px;
+  bottom: 6.5px;
+}
+
+.throw {
+  animation: x 2s linear forwards, y 2s cubic-bezier(0, 1000, 1, 1000),
+    bounce 0.2s 2s 6 alternate forwards cubic-bezier(0.2, 0.65, 0.6, 1),
+    rotate 1.2s 2s forwards ease-out;
+}
+
+@keyframes x {
+  to {
+    left: 508px;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes y {
+  to {
+    bottom: 7px;
+  }
+}
+
+@keyframes bounce {
+  from {
+    left: 506px;
+  }
+  to {
+    bottom: 20px;
+    left: 509px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(440deg);
+  }
+}
