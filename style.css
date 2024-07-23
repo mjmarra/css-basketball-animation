@@ -56,32 +56,27 @@ body {
 
 @keyframes x {
   to {
-    left: 508px;
-    transform: rotate(360deg);
+    transform: translateX(508px) rotate(360deg);
   }
 }
 
 @keyframes y {
   to {
-    bottom: 7px;
+    translate: 0 -0.5px;
   }
 }
 
 @keyframes bounce {
   from {
-    left: 506px;
+    transform: translateX(506px);
   }
   to {
-    bottom: 20px;
-    left: 509px;
+    transform: translateY(-20px) translateX(509px);
   }
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
   to {
-    transform: rotate(440deg);
+    transform: translateX(506px) rotate(60deg);
   }
 }
